@@ -7,7 +7,7 @@ exports.home_page = function(req, res, next) {
         .sort({number : 1})
         .exec(function (err, list_tables) {
             if (err) { return next(err); }
-            res.render('tables', { title: 'Hello', table_list: list_tables });
+            res.render('tables', { title: 'Home', table_list: list_tables });
         });
 };
 
