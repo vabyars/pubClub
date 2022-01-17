@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    div(class='tables_page')
+        span(class='tables_page_title') Table № #{table.number}
+        div(class='table_page_content')
+            div(class='table_block')
+                img(src=`/images/table${table.number}.jpg` class='table_img' )
+                br
+                span(class='table_block_text') Seats: #{table.capacity} persons
+                span(class='table_block_text') Booking price: #{table.bookingPrice}$
+
+            form(class='form' action=``, method='POST')
+                div(class='row')
+                    div(class='row_cell')
+                        span(class='row_cell_title') Username:
+                        input(class='input' name='username', value=(formData ? formData.username : ''), type='text' required)
+                    div(class='row_cell')
+                        | Email:
+                        input(class='input' name='email', value=(formData ? formData.email : ''), type='email' required)
+                div(class='row')
+                    div(class='row_cell')
+                        span(class='row_cell_title') Date:
+                        input(class='input' name='date', value=(formData ? formData.date : ''), type='date'  required)
+                    div(class='row_cell')
+                        | From:
+                        input(class='input' name='from', value=(formData ? formData.from : ''), type='time' min="10:00" max="22:00" step="1800" required)
+                    div(class='row_cell')
+                        | To:
+                        input(class='input' name='to', value=(formData ? formData.to : ''), type='time' min="10:00" max="22:00" step="1800" required)
+
+
+                div(class='submit_block')
+                        input(class='submit_button' value='Order', type='submit')
+                        if error
+                            span(class='error') #{error}
+
+        a(class='home_button' href='/pub/home') Home

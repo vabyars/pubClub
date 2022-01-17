@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    div(class='tables_page')
+        span(class='tables_page_title') Tables
+        div(class='tables_page_content')
+            each table in table_list
+                div(class='table_block')
+                    a(href=`table/${table.number}`)
+                        img(src=`/images/table${table.number}.jpg` class='table_img' )
+                    p
+                        a(class='table_block_title' href=`table/${table.number}`) Table № #{table.number}
+                    span(class='table_block_text') Seats: #{table.capacity} persons
+                    span(class='table_block_text') Booking price: #{table.bookingPrice}$

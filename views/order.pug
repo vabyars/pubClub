@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    div(class='tables_page')
+        span(class='tables_page_title') #{title}
+        div(class='table_page_content')
+            div(class='table_block')
+                img(src=`/images/table${table.number}.jpg` class='table_img' )
+            div(class='order_block')
+                p(class='order_info') Capacity: #{table.capacity} persons
+                p(class='order_info') Booking price: #{table.bookingPrice}$
+                p(class='order_info') Taker name: #{order.name}
+                p(class='order_info') Email: #{order.email}
+                p(class='order_info') Date: #{order.date}
+
+        a(class='home_button' href='/pub/home') Home

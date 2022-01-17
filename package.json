@@ -1,0 +1,25 @@
+{
+  "name": "pubclub",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "serverstart": "SET DEBUG=pubClub:* & npm run devstart"
+  },
+  "dependencies": {
+    "async": "^3.2.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-validator": "^6.14.0",
+    "http-errors": "~1.6.3",
+    "luxon": "^2.2.0",
+    "mongoose": "^6.1.2",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
