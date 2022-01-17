@@ -4,7 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-
+const helmet = require('helmet');
+const compression = require('compression');
 
 const indexRouter = require('./routes/index');
 const pubRouter = require('./routes/pub');
@@ -12,7 +13,7 @@ const { dbUri } = require('./dbConnection');
 
 const app = express();
 
-mongoose.connect( dbUri, { useNewUrlParser: true , useUnifiedTopology: true});
+mongoose.connect( process.env.MONGODB_URI || dbUri, { useNewUrlParser: true , useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.on('connection', () => console.error('Asddf'));
@@ -26,7 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(compression());
+app.use(helmet());
 app.use('/', indexRouter);
 app.use('/pub', pubRouter);
 app.use('/images', express.static(path.join(__dirname, 'public/images')));

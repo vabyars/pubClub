@@ -1,1 +1,1 @@
-exports.dbUri = 'mongodb+srv://vabyars:bRZg9ifaWhxjHzZ@cluster0.uqnxa.mongodb.net/pubClub?retryWrites=true&w=majority';
+exports.dbUri = '';
